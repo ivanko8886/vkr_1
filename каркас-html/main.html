@@ -1,1 +1,139 @@
 <!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Domoteka - Агрегатор недвижимости</title>
+    <link rel="stylesheet" href="../стили-css/up.css" type="text/css">
+    <link rel="stylesheet" href="../стили-css/main.css" type="text/css">
+    <link rel="stylesheet" href="../стили-css/center.css" type="text/css">
+    <link rel="stylesheet" href="../стили-css/geo-but.css" type="text/css">
+    <script src="../функционал-js-py/geo-but.js"></script>
+</head>
+
+<body>
+    <meta name="viewport" content="width=1200"> <!-- Замените 1200 на желаемую ширину -->
+    <header class="up">
+        <div class="left-section">
+            <div class="logo">
+                <img src="../pictures/domoteka.png" alt="Логотип Domoteka" />
+            </div>
+            <div class="dropdowns">
+                <div class="dropdown">
+                    <button class="dropbtn">Покупка</button>
+                    <div class="dropdown-content">
+                        <a href="#">Длительная аренда</a>
+                        <a href="#">Квартиры</a>
+                        <a href="#">Комнаты</a>
+                        <a href="#">Дома и коттеджи</a>
+                        <a href="#">Посуточная аренда</a>
+                        <a href="#">Сдать</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">Аренда</button>
+                    <div class="dropdown-content">
+                        <a href="#">Длительная аренда</a>
+                        <a href="#">Посуточная аренда</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">Коммерческая</button>
+                    <div class="dropdown-content">
+                        <a href="#">Аренда</a>
+                        <a href="#">Продажа</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">Новостройки</button>
+                    <div class="dropdown-content">
+                        <a href="#">Квартиры</a>
+                        <a href="#">Дома</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">Строительство</button>
+                    <div class="dropdown-content">
+                        <a href="#">Проекты</a>
+                        <a href="#">Земельные участки</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right-section">
+            <nav>
+                <ul class="main-menu">
+                    <li><a href="#">Поиск по карте</a></li>
+                    <li><a href="#">Поиск по сайту</a></li>
+                    <li><a href="#">Сравнить</a></li>
+                    <li><a href="#">Избранное</a></li>
+                    <li><a href="#">Войти</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    
+    <section class="center" style="background-image: url('../pictures/banner1.jfif'); background-size: cover; background-position: center;">
+        <div class="banner">
+            <div class="top-menu">
+                <button class="menu-btn active">Купить</button>
+                <button class="menu-btn">Снять</button>
+                <button class="menu-btn">Посуточно</button>
+                <button class="menu-btn">Построить</button>
+                <button class="menu-btn">Подбор риелтора</button>
+            </div>
+            <div class="bottom-menu">
+                <button class="property-btn active">Квартиру</button>
+                <button class="property-btn">Комнату</button>
+                <div class="search-inputs">
+                    <input type="text" placeholder="Цена" class="price-input">
+                    <input type="text" placeholder="Поиск по адресу" class="search-input">
+                </div>
+            </div>
+        </div>
+
+        <!-- Кнопка геолокации -->
+        <button id="geolocate" class="geolocation-btn">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 0C3.6 0 0 3.6 0 8C0 12.4 3.6 16 8 16C12.4 16 16 12.4 16 8C16 3.6 12.4 0 8 0ZM8 14.4C4.4 14.4 1.6 11.6 1.6 8C1.6 4.4 4.4 1.6 8 1.6C11.6 1.6 14.4 4.4 14.4 8C14.4 11.6 11.6 14.4 8 14.4Z" fill="currentColor"/>
+                <path d="M8 6.4C7.1 6.4 6.4 7.1 6.4 8C6.4 8.9 7.1 9.6 8 9.6C8.9 9.6 9.6 8.9 9.6 8C9.6 7.1 8.9 6.4 8 6.4Z" fill="currentColor"/>
+            </svg>
+            <span class="text">Определить местоположение</span>
+        </button>
+
+        <!-- Модальное окно выбора города -->
+        <div id="city-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <h2>Выберите город</h2>
+                <input type="text" id="city-search" placeholder="Поиск города...">
+                <div id="city-list">
+                    <!-- Города будут добавляться динамически -->
+                </div>
+                <button id="confirm-city">Подтвердить выбор</button>
+            </div>
+        </div>
+    </section>
+    <section class="down">
+        <div class="container">
+            <div class="info-blocks">
+                <div class="info-block">
+                    <h3>О нас</h3>
+                    <p>Domoteka - ваш надежный партнер в поиске недвижимости. Мы агрегируем предложения со всех крупных площадок, чтобы вы могли найти идеальный вариант.</p>
+                </div>
+                <div class="info-block">
+                    <h3>Контакты</h3>
+                    <p>Email: info@domoteka.ru</p>
+                    <p>Телефон: +7 (999) 123-45-67</p>
+                    <p>Адрес: г. Москва, ул. Примерная, д. 1</p>
+                </div>
+            </div>
+            <div class="footer">
+                <p>&copy; 2024 Domoteka. Все права защищены.</p>
+            </div>
+        </div>
+    </section>
+    
+</body>
+</html>

@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+:root {
+  --fontSize-14px: 14px;
+  --lineHeight-20px: 20px;
+  --color-white: #FFFFFF;
+  --color-overlay: rgba(0, 0, 0, 0.5);
+  --color-primary: #0070f3;
+  --color-primary-hover: #0051bb;
+  --color-background: #fefefe;
+  --color-border: #ddd;
+  --color-text: #333;
+  --color-text-light: #aaa;
+  --border-radius: 4px;
+  --transition: 0.3s ease;
+}
+
+.wrapper {
+  position: relative;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  min-width: 320px;
+  max-width: 1376px;
+}
+
+.geolocation-btn {
+  position: absolute;
+  z-index: 12;
+  top: 16px;
+  left: 16px;
+  padding: 0 12px;
+  display: flex;
+  height: 32px;
+  font-size: var(--fontSize-14px);
+  line-height: var(--lineHeight-20px);
+  cursor: pointer;
+  color: var(--color-white);
+  align-items: center;
+  background: var(--color-overlay);
+  border: none;
+  border-radius: var(--border-radius);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  transition: background-color var(--transition);
+}
+
+.geolocation-btn:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.geolocation-btn svg {
+  margin-right: 8px;
+  fill: var(--color-white);
+}
+
+.geolocation-btn .text {
+  margin-left: 8px;
+}
+
+#city-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  background-color: var(--color-background);
+  margin: 15% auto;
+  padding: 24px;
+  border: 1px solid var(--color-border);
+  width: 90%;
+  max-width: 500px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.close-button {
+  color: var(--color-text-light);
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color var(--transition);
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: var(--color-text);
+}
+
+#city-search {
+  width: 100%;
+  padding: 12px;
+  margin: 16px 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  font-size: var(--fontSize-14px);
+  transition: border-color var(--transition);
+}
+
+#city-search:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+#city-list {
+  max-height: 240px;
+  overflow-y: auto;
+  margin-bottom: 16px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+}
+
+#city-list button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--transition);
+  font-size: var(--fontSize-14px);
+  color: var(--color-text);
+}
+
+#city-list button:hover {
+  background-color: #f0f0f0;
+}
+
+#confirm-city {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: var(--fontSize-14px);
+  font-weight: 500;
+  transition: background-color var(--transition);
+}
+
+#confirm-city:hover {
+  background-color: var(--color-primary-hover);
+}
+
+@media (min-width: 1024px) {
+  .wrapper {
+    padding: 0 24px;
+  }
+  
+  .geolocation-btn {
+    left: 24px;
+  }
+}
