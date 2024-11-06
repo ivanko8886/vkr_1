@@ -9,67 +9,115 @@
     <link rel="stylesheet" href="../стили-css/center.css" type="text/css">
     <link rel="stylesheet" href="../стили-css/geo-but.css" type="text/css">
     <script src="../функционал-js-py/geo-but.js"></script>
+    <script src="../функционал-js-py/icon-animations.js"></script>
+
 </head>
 
 <body>
     <meta name="viewport" content="width=1200"> <!-- Замените 1200 на желаемую ширину -->
     <header class="up">
-        <div class="left-section">
-            <div class="logo">
-                <img src="../pictures/domoteka.png" alt="Логотип Domoteka" />
+        <!-- Верхняя часть с логотипом и SVG-иконками -->
+        <div class="top-section">
+            <div class="left-section">
+                <div class="logo">
+                    <img src="../pictures/domoteka.png" alt="Логотип Domoteka" />
+                </div>
             </div>
-            <div class="dropdowns">
-                <div class="dropdown">
-                    <button class="dropbtn">Покупка</button>
-                    <div class="dropdown-content">
-                        <a href="#">Длительная аренда</a>
-                        <a href="#">Квартиры</a>
-                        <a href="#">Комнаты</a>
-                        <a href="#">Дома и коттеджи</a>
-                        <a href="#">Посуточная аренда</a>
-                        <a href="#">Сдать</a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <button class="dropbtn">Аренда</button>
-                    <div class="dropdown-content">
-                        <a href="#">Длительная аренда</a>
-                        <a href="#">Посуточная аренда</a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <button class="dropbtn">Коммерческая</button>
-                    <div class="dropdown-content">
-                        <a href="#">Аренда</a>
-                        <a href="#">Продажа</a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <button class="dropbtn">Новостройки</button>
-                    <div class="dropdown-content">
-                        <a href="#">Квартиры</a>
-                        <a href="#">Дома</a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <button class="dropbtn">Строительство</button>
-                    <div class="dropdown-content">
-                        <a href="#">Проекты</a>
-                        <a href="#">Земельные участки</a>
-                    </div>
-                </div>
+            <div class="right-section">
+                <ul class="main-menu">
+                    <li>
+                        <a href="#" title="Поиск по карте">
+                            <svg class="icon icon-geolocation-futuristic" width="24" height="24" viewBox="0 0 24 24">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                <circle cx="12" cy="9" r="3" fill="none" stroke="currentColor" stroke-width="0.5"/>
+                                <path d="M12 2v7M12 11v11M2 9h7M15 9h7" stroke="currentColor" stroke-width="0.5"/>
+                                <circle cx="12" cy="9" r="1" />
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="Поиск по сайту">
+                            <svg class="icon icon-search-futuristic" width="24" height="24" viewBox="0 0 24 24">
+                                <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
+                                <path d="M20 20l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <g class="rotate">
+                                    <circle cx="11" cy="11" r="3" fill="none" stroke="currentColor" stroke-width="1"/>
+                                    <path d="M11 4v2M11 16v2M4 11h2M16 11h2" stroke="currentColor" stroke-width="1"/>
+                                </g>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="Сравнить">
+                            <svg class="icon icon-compare" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                                <line x1="2" y1="6" x2="16" y2="6"></line>
+                                <line x1="2" y1="12" x2="16" y2="12"></line>
+                                <line x1="2" y1="18" x2="16" y2="18"></line>
+                                <g class="plus-symbol">
+                                    <line x1="19" y1="10" x2="19" y2="14"></line>
+                                    <line x1="17" y1="12" x2="21" y2="12"></line>
+                                </g>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="Избранное">
+                            <svg class="icon-favorite" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path class="outline" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke="black" stroke-width="3"/>
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke="#00ffff" stroke-width="2"/>
+                            </svg>
+                        </a>
+                    </li>
+                    <li><a href="#" id="login-link">Войти</a></li>
+                </ul>
             </div>
         </div>
-        <div class="right-section">
-            <nav>
-                <ul class="main-menu">
-                    <li><a href="#">Поиск по карте</a></li>
-                    <li><a href="#">Поиск по сайту</a></li>
-                    <li><a href="#">Сравнить</a></li>
-                    <li><a href="#">Избранное</a></li>
-                    <li><a href="#">Войти</a></li>
-                </ul>
-            </nav>
+        
+        <!-- Нижняя часть с кнопками -->
+        <div class="bottom-section">
+            <div class="left-section">
+                <div class="dropdowns">
+                    <div class="dropdown">
+                        <button class="dropbtn">Покупка</button>
+                        <div class="dropdown-content">
+                            <a href="#">Длительная аренда</a>
+                            <a href="#">Квартиры</a>
+                            <a href="#">Комнаты</a>
+                            <a href="#">Дома и коттеджи</a>
+                            <a href="#">Посуточная аренда</a>
+                            <a href="#">Сдать</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">Аренда</button>
+                        <div class="dropdown-content">
+                            <a href="#">Длительная аренда</a>
+                            <a href="#">Посуточная аренда</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">Коммерческая</button>
+                        <div class="dropdown-content">
+                            <a href="#">Аренда</a>
+                            <a href="#">Продажа</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">Новостройки</button>
+                        <div class="dropdown-content">
+                            <a href="#">Квартиры</a>
+                            <a href="#">Дома</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">Строительство</button>
+                        <div class="dropdown-content">
+                            <a href="#">Проекты</a>
+                            <a href="#">Земельные участки</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 

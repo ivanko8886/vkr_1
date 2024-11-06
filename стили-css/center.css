@@ -19,6 +19,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding-top: 150px;
 }
 
 .top-menu, .bottom-menu {
