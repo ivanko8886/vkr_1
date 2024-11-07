@@ -27,7 +27,7 @@
 .geolocation-btn {
   position: absolute;
   z-index: 12;
-  top: 16px;
+  top: 160px;
   left: 16px;
   padding: 0 12px;
   display: flex;

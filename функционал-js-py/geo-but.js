@@ -6,34 +6,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const cityList = document.getElementById('city-list');
     const confirmCityButton = document.getElementById('confirm-city');
 
-    // Функция для определения города
+    // Функция для определения города через GeoIP
     function determineCity() {
-        if ("geolocation" in navigator) {
-            navigator.geolocation.getCurrentPosition(function(position) {
-                var lat = position.coords.latitude;
-                var lon = position.coords.longitude;
-
-                // Используем API для получения названия города
-                fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=ru`)
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.locality) {
-                            updateGeoButton(data.locality);
-                        } else {
-                            updateGeoButton("Город не определен");
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Ошибка:', error);
-                        updateGeoButton("Ошибка определения города");
-                    });
-            }, function(error) {
-                console.error('Ошибка геолокации:', error);
-                updateGeoButton("Ошибка геолокации");
+        // Используем публичный API для определения местоположения по IP
+        fetch('https://ipapi.co/json/')
+            .then(response => response.json())
+            .then(data => {
+                if (data.city) {
+                    updateGeoButton(data.city);
+                } else {
+                    updateGeoButton("Москва"); // Дефолтный город, если определение не удалось
+                }
+            })
+            .catch(error => {
+                console.error('Ошибка определения города:', error);
+                updateGeoButton("Москва"); // Дефолтный город в случае ошибки
             });
-        } else {
-            updateGeoButton("Геолокация не поддерживается");
-        }
     }
 
     // Функция для обновления текста кнопки
@@ -67,15 +55,24 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Поиск городов (пример, нужно реализовать реальный поиск)
+    // Массив популярных городов России
+    const popularCities = [
+        "Москва", "Санкт-Петербург", "Новосибирск", "Екатеринбург", 
+        "Казань", "Нижний Новгород", "Челябинск", "Самара", 
+        "Омск", "Ростов-на-Дону", "Уфа", "Красноярск", 
+        "Воронеж", "Пермь", "Волгоград"
+    ];
+
+    // Функция поиска городов
     citySearch.addEventListener('input', function() {
-        // Здесь должна быть логика поиска городов
-        // Для примера просто добавим несколько городов
-        cityList.innerHTML = `
-            <button>Москва</button>
-            <button>Санкт-Петербург</button>
-            <button>Новосибирск</button>
-        `;
+        const searchTerm = this.value.toLowerCase();
+        const filteredCities = popularCities.filter(city => 
+            city.toLowerCase().includes(searchTerm)
+        );
+
+        cityList.innerHTML = filteredCities
+            .map(city => `<button>${city}</button>`)
+            .join('');
     });
 
     // Обработчик выбора города

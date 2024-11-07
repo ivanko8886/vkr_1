@@ -8,8 +8,12 @@
     <link rel="stylesheet" href="../стили-css/main.css" type="text/css">
     <link rel="stylesheet" href="../стили-css/center.css" type="text/css">
     <link rel="stylesheet" href="../стили-css/geo-but.css" type="text/css">
+    <link rel="stylesheet" href="../стили-cs/login.css" type="text/css">
+
     <script src="../функционал-js-py/geo-but.js"></script>
     <script src="../функционал-js-py/icon-animations.js"></script>
+    <script src="../функционал-js-py/banner.js"></script>
+    <script src="../функционал-js-py/login.js"></script>
 
 </head>
 
@@ -68,7 +72,8 @@
                             </svg>
                         </a>
                     </li>
-                    <li><a href="#" id="login-link">Войти</a></li>
+                    <li><a href="#" id="login-link">Войти</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -78,42 +83,64 @@
             <div class="left-section">
                 <div class="dropdowns">
                     <div class="dropdown">
-                        <button class="dropbtn">Покупка</button>
+                        <button class="dropbtn">
+                            <span>Покупка</span>
+                        </button>
                         <div class="dropdown-content">
-                            <a href="#">Длительная аренда</a>
-                            <a href="#">Квартиры</a>
-                            <a href="#">Комнаты</a>
-                            <a href="#">Дома и коттеджи</a>
-                            <a href="#">Посуточная аренда</a>
-                            <a href="#">Сдать</a>
+                            <div>
+                                <a href="#">Длительная аренда</a>
+                                <a href="#">Квартиры</a>
+                                <a href="#">Комнаты</a>
+                            </div>
+                            <div>
+                                <a href="#">Дома и коттеджи</a>
+                                <a href="#">Посуточная аренда</a>
+                                <a href="#">Сдать</a>
+                            </div>
                         </div>
                     </div>
                     <div class="dropdown">
-                        <button class="dropbtn">Аренда</button>
+                        <button class="dropbtn">
+                            <span>Аренда</span>
+                        </button>
                         <div class="dropdown-content">
-                            <a href="#">Длительная аренда</a>
-                            <a href="#">Посуточная аренда</a>
+                            <div>
+                                <a href="#">Длительная аренда</a>
+                                <a href="#">Посуточная аренда</a>
+                            </div>
                         </div>
                     </div>
                     <div class="dropdown">
-                        <button class="dropbtn">Коммерческая</button>
+                        <button class="dropbtn">
+                            <span>Коммерческая</span>
+                        </button>
                         <div class="dropdown-content">
-                            <a href="#">Аренда</a>
-                            <a href="#">Продажа</a>
+                            <div>
+                                <a href="#">Аренда</a>
+                                <a href="#">Продажа</a>
+                            </div>
                         </div>
                     </div>
                     <div class="dropdown">
-                        <button class="dropbtn">Новостройки</button>
+                        <button class="dropbtn">
+                            <span>Новостройки</span>
+                        </button>
                         <div class="dropdown-content">
-                            <a href="#">Квартиры</a>
-                            <a href="#">Дома</a>
+                            <div>
+                                <a href="#">Квартиры</a>
+                                <a href="#">Дома</a>
+                            </div>
                         </div>
                     </div>
                     <div class="dropdown">
-                        <button class="dropbtn">Строительство</button>
+                        <button class="dropbtn">
+                            <span>Строительство</span>
+                        </button>
                         <div class="dropdown-content">
-                            <a href="#">Проекты</a>
-                            <a href="#">Земельные участки</a>
+                            <div>
+                                <a href="#">Проекты</a>
+                                <a href="#">Земельные участки</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -125,21 +152,23 @@
     <section class="center" style="background-image: url('../pictures/banner1.jfif'); background-size: cover; background-position: center;">
         <div class="banner">
             <div class="top-menu">
-                <button class="menu-btn active">Купить</button>
-                <button class="menu-btn">Снять</button>
-                <button class="menu-btn">Посуточно</button>
-                <button class="menu-btn">Построить</button>
-                <button class="menu-btn">Подбор риелтора</button>
+                <button class="menu-btn active" data-type="buy">Купить</button>
+                <button class="menu-btn" data-type="rent">Снять</button>
+                <button class="menu-btn" data-type="daily">Посуточно</button>
+                <button class="menu-btn" data-type="build">Построить</button>
+                <button class="menu-btn" data-type="realtor">Подбор риелтора</button>
             </div>
             <div class="bottom-menu">
-                <button class="property-btn active">Квартиру</button>
-                <button class="property-btn">Комнату</button>
+                <button class="property-btn active" data-property="apartment">Квартиру</button>
+                <button class="property-btn" data-property="room">Комнату</button>
                 <div class="search-inputs">
                     <input type="text" placeholder="Цена" class="price-input">
                     <input type="text" placeholder="Поиск по адресу" class="search-input">
                 </div>
             </div>
         </div>
+    
+        
 
         <!-- Кнопка геолокации -->
         <button id="geolocate" class="geolocation-btn">
@@ -147,7 +176,7 @@
                 <path d="M8 0C3.6 0 0 3.6 0 8C0 12.4 3.6 16 8 16C12.4 16 16 12.4 16 8C16 3.6 12.4 0 8 0ZM8 14.4C4.4 14.4 1.6 11.6 1.6 8C1.6 4.4 4.4 1.6 8 1.6C11.6 1.6 14.4 4.4 14.4 8C14.4 11.6 11.6 14.4 8 14.4Z" fill="currentColor"/>
                 <path d="M8 6.4C7.1 6.4 6.4 7.1 6.4 8C6.4 8.9 7.1 9.6 8 9.6C8.9 9.6 9.6 8.9 9.6 8C9.6 7.1 8.9 6.4 8 6.4Z" fill="currentColor"/>
             </svg>
-            <span class="text">Определить местоположение</span>
+            <span class="text">Определяю местоположение</span>
         </button>
 
         <!-- Модальное окно выбора города -->
@@ -163,6 +192,8 @@
             </div>
         </div>
     </section>
+
+    
     <section class="down">
         <div class="container">
             <div class="info-blocks">

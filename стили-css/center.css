@@ -1,55 +1,143 @@
-/* Существующие стили... */
-
-/* Стили для центральной секции */
 .center {
-    position: relative;
-    min-height: 400px;
-    background-image: url('../путь/к/вашему/banner1.jpg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 450px;
     background-size: cover;
     background-position: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 20px;
 }
 
 .banner {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding-top: 150px;
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto;
+    background-color: #f9f7f4;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    padding: 12px;
+    font-family: 'Roboto', sans-serif;
 }
 
-.top-menu, .bottom-menu {
+.top-menu {
     display: flex;
-    justify-content: center;
-    gap: 10px;
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.7); /* полупрозрачный фон */
+    justify-content: flex-start;
+    margin-bottom: 12px;
+    border-bottom: 2px solid #c9e0ca;
+    padding-bottom: 8px;
+    gap: 5px;
 }
 
-.top-menu button, .bottom-menu button {
-    padding: 10px 20px;
-    font-size: 16px;
+.menu-btn {
+    padding: 8px 15px;
+    margin: 0 2px;
     border: none;
-    background-color: #4CAF50;
-    color: white;
+    background: none;
+    color: #4d6b45;
+    font-size: 14px;
+    font-weight: 500;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.2s ease;
+    border-radius: 6px;
+    white-space: nowrap;
 }
 
-.top-menu button:hover, .bottom-menu button:hover {
-    background-color: #45a049;
+.menu-btn:hover {
+    background-color: #ddefe1;
+    color: #364a2f;
 }
 
-.bottom-menu input[type="text"] {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ddd;
+.menu-btn.active {
+    background-color: #8cd292;
+    color: #ffffff;
 }
 
-.bottom-menu input[type="text"]::placeholder {
-    color: #999;
+.bottom-menu {
+    padding: 8px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    align-items: center;
+}
+
+.property-btn {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #e0d8c9;
+    background-color: #ffffff;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #4d6b45;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.property-btn:hover {
+    border-color: #8cd298;
+    background-color: #f2faf2;
+}
+
+.property-btn.active {
+    background-color: #8cd292;
+    color: #ffffff;
+}
+
+.search-inputs {
+    grid-column: span 2;
+    display: flex;
+    gap: 10px;
+}
+
+.price-input, .search-input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #cbe0c9;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+@media (max-width: 768px) {
+    .banner {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .top-menu {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 5px;
+    }
+
+    .bottom-menu {
+        grid-template-columns: 1fr;
+    }
+
+    .search-inputs {
+        grid-column: 1;
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .bottom-menu {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.banner {
+    animation: fadeIn 0.2s ease-out;
 }
