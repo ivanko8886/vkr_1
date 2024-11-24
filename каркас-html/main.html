@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Domoteka - Агрегатор недвижимости</title>
+    <title>ДомоТека - база недвижимости в России | Продажа, аренда квартир и другой недвижимости</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link  rel="icon" type="image/ico" href="../pictures/favicon.png"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" href="../стили-css/up.css" type="text/css">
     <link rel="stylesheet" href="../стили-css/main.css" type="text/css">
     <link rel="stylesheet" href="../стили-css/center.css" type="text/css">
     <link rel="stylesheet" href="../стили-css/geo-but.css" type="text/css">
     <link rel="stylesheet" href="../стили-cs/login.css" type="text/css">
-
+    <link rel="stylesheet" href="../стили-css/login.css" type="text/css">
+    <script src="../функционал-js-py/login.js"></script>
     <script src="../функционал-js-py/geo-but.js"></script>
     <script src="../функционал-js-py/icon-animations.js"></script>
     <script src="../функционал-js-py/banner.js"></script>
@@ -18,14 +21,36 @@
 </head>
 
 <body>
-    <meta name="viewport" content="width=1200"> <!-- Замените 1200 на желаемую ширину -->
+    <meta name="viewport" content="width=1200"> <!--  1200 на желаемую ширину -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Вход в систему</h2>
+            <form class="login-form">
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" placeholder="Пароль" required>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="login-button">Войти</button>
+                    <a href="#" class="forgot-password">Забыли пароль?</a>
+                </div>
+                <div class="register-link">
+                    <p>Нет аккаунта? <a href="#">Зарегистрироваться</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
     <header class="up">
         <!-- Верхняя часть с логотипом и SVG-иконками -->
         <div class="top-section">
             <div class="left-section">
-                <div class="logo">
-                    <img src="../pictures/domoteka.png" alt="Логотип Domoteka" />
-                </div>
+                <div class="logo" >
+                    <a href="main.html">
+                        <img  style="margin-left: 7.5px;" src="../pictures/domoteka.png" alt="Логотип проекта">
+                        </a>                </div>
             </div>
             <div class="right-section">
                 <ul class="main-menu">
@@ -71,12 +96,15 @@
                                 <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke="#00ffff" stroke-width="2"/>
                             </svg>
                         </a>
-                    </li>
-                    <li><a href="#" id="login-link">Войти</a>
-                    </li>
-                </ul>
+                        </li>
+                        <li><a href="#" id="login-link">Войти</a></li>                <!--заменить слова верхней части шапки на значки 
+                    + сделать сплывающее окно помощник при наведении
+                    за исключением входа\регистрции\личного кабинета кабинета -->
+                    </ul>
             </div>
         </div>
+        
+        
         
         <!-- Нижняя часть с кнопками -->
         <div class="bottom-section">
@@ -89,13 +117,14 @@
                         <div class="dropdown-content">
                             <div>
                                 <a href="#">Длительная аренда</a>
-                                <a href="#">Квартиры</a>
-                                <a href="#">Комнаты</a>
-                            </div>
-                            <div>
-                                <a href="#">Дома и коттеджи</a>
+                                <a href="#">-Квартиры</a>
+                                <a href="#">-Комнаты</a>
+                                <a href="#">-Дома и коттеджи</a>
                                 <a href="#">Посуточная аренда</a>
                                 <a href="#">Сдать</a>
+                            </div>
+                            <div>
+                                
                             </div>
                         </div>
                     </div>
@@ -108,6 +137,8 @@
                                 <a href="#">Длительная аренда</a>
                                 <a href="#">Посуточная аренда</a>
                             </div>
+                            <div>
+                            </div>
                         </div>
                     </div>
                     <div class="dropdown">
@@ -118,6 +149,8 @@
                             <div>
                                 <a href="#">Аренда</a>
                                 <a href="#">Продажа</a>
+                            </div>
+                            <div>
                             </div>
                         </div>
                     </div>
@@ -130,6 +163,8 @@
                                 <a href="#">Квартиры</a>
                                 <a href="#">Дома</a>
                             </div>
+                            <div>
+                            </div>
                         </div>
                     </div>
                     <div class="dropdown">
@@ -141,6 +176,8 @@
                                 <a href="#">Проекты</a>
                                 <a href="#">Земельные участки</a>
                             </div>
+                            <div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -150,23 +187,7 @@
 
     
     <section class="center" style="background-image: url('../pictures/banner1.jfif'); background-size: cover; background-position: center;">
-        <div class="banner">
-            <div class="top-menu">
-                <button class="menu-btn active" data-type="buy">Купить</button>
-                <button class="menu-btn" data-type="rent">Снять</button>
-                <button class="menu-btn" data-type="daily">Посуточно</button>
-                <button class="menu-btn" data-type="build">Построить</button>
-                <button class="menu-btn" data-type="realtor">Подбор риелтора</button>
-            </div>
-            <div class="bottom-menu">
-                <button class="property-btn active" data-property="apartment">Квартиру</button>
-                <button class="property-btn" data-property="room">Комнату</button>
-                <div class="search-inputs">
-                    <input type="text" placeholder="Цена" class="price-input">
-                    <input type="text" placeholder="Поиск по адресу" class="search-input">
-                </div>
-            </div>
-        </div>
+       
     
         
 
