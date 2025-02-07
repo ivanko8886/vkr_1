@@ -1,0 +1,14 @@
+restate.py::RestateParser::test_restate_parser
+--------------------------------------------------------------------
+Last Page: https://www.restate.ru/podbor.html?dealid=2&region=2&object=sareas-1&input-search=&price_to=&pricetype=1&frompodbor2021=1
+ Duration: 13.01s
+  Browser: Chrome 131.0.6778.205
+   Driver: chromedriver 131.0.6778.204
+Timestamp: 1736263875  (Unix Timestamp)
+     Date: Tuesday, 7 January 2025
+     Time: 6:31:15 PM  (RTZ 2 (зима), UTC+03:00)
+--------------------------------------------------------------------
+Traceback:
+  File "c:\Users\Ivan Tula\Desktop\vkr_1\restate.py", line 30, in test_restate_parser
+    self.report_error(f"Ошибка при прохождении капчи: {e}")
+Exception: 'RestateParser' object has no attribute 'report_error'

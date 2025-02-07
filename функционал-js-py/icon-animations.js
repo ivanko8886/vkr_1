@@ -71,7 +71,6 @@ if (favoriteIcon) {
         paths.forEach(path => {
             if (!path.classList.contains('outline')) {
                 path.style.stroke = '#00ffff'; // Цвет как у других иконок
-                path.style.filter = 'drop-shadow(0 0 3px rgba(0,255,255,0.5))';
             }
         });
     });
@@ -128,9 +127,7 @@ styleSheet.textContent = `
     transition: all 0.3s ease;
 }
 
-.icon-favorite:hover {
-    filter: drop-shadow(0 0 3px rgba(0,255,255,0.5));
-}
+
 
 .icon-favorite .outline {
     stroke: black;

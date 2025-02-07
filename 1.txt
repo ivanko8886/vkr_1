@@ -1,0 +1,67 @@
+циан можно спокойно парсить
+домклик либо апи либо эмулятор
+и нужен третий пример либо яндекс недвижимость либо авито
+лучше использовать сразу все способы для наглядности работы алгоритмо и возможности сайтов и их защиты
+import asyncio
+from patchright.async_api import async_playwright, Browser, BrowserContext, Page
+
+async def main() -> None:
+    async with async_playwright() as playwright:
+        async with await playwright.chromium.launch(
+            channel='chrome',
+            headless=False,
+            args=[
+                '--disable-blink-features=AutomationControlled',
+            ]
+        ) as browser:  # type: Browser
+            context: BrowserContext = await browser.new_context()
+            for url in ('https://bartio.faucet.berachain.com/', 'https://dexscreener.com'):
+                page: Page = await context.new_page()
+                await page.goto(url)
+                await asyncio.Future()
+
+if __name__ == "__main__":
+    asyncio.run(main())
+
+
+
+
+
+
+
+
+    from seleniumbase import Driver
+from selenium.webdriver.common.by import By
+import time
+
+# Инициализация драйвера
+driver = Driver(uc=True)
+
+# Открытие первой страницы и ожидание ручного прохождения капчи
+url1 = "https://www.restate.ru/podbor.html?dealid=2&region=2&object=sareas-1&input-search=&price_to=&pricetype=1&frompodbor2021=1&o=0"
+driver.get(url1)
+print("Пожалуйста, пройдите капчу вручную...")
+time.sleep(20)  # Даем время на прохождение капчи
+
+# Парсинг данных из тега <div class="sri__descr">
+try:
+    descriptions = driver.find_elements(By.CLASS_NAME, "sri__descr")
+    for desc in descriptions:
+        print(desc.text)  # Выводим текст каждого элемента
+except Exception as e:
+    print(f"Ошибка при парсинге данных: {e}")
+
+# Переход на вторую страницу и повторный парсинг
+url2 = "https://www.restate.ru/podbor.html?dealid=2&region=2&object=sareas-1&input-search=&price_to=&pricetype=1&frompodbor2021=1&o=0&page=2"
+driver.get(url2)
+time.sleep(5)  # Задержка для загрузки страницы
+
+try:
+    descriptions = driver.find_elements(By.CLASS_NAME, "sri__descr")
+    for desc in descriptions:
+        print(desc.text)  # Выводим текст каждого элемента
+except Exception as e:
+    print(f"Ошибка при парсинге данных: {e}")
+
+# Закрытие драйвера
+driver.quit()

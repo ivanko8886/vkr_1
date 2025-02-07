@@ -1,0 +1,65 @@
+from bs4 import BeautifulSoup
+import requests
+
+# Функция для обработки одной страницы
+def process_page(url):
+    response = requests.get(url)
+    response.raise_for_status()
+    soup = BeautifulSoup(response.text, 'lxml')
+    
+    # Поиск всех элементов с атрибутом data-name="LinkArea"
+    link_areas = soup.find_all('div', attrs={'data-name': 'LinkArea'})
+    
+    # Обработка каждого LinkArea
+    for link_area in link_areas:
+        # Извлечение информации из указанных тегов
+        offer_title = link_area.find('span', attrs={'data-mark': 'OfferTitle'})
+        offer_subtitle = link_area.find('span', attrs={'data-mark': 'OfferSubtitle'})
+        geo_labels = link_area.find_all('a', attrs={'data-name': 'GeoLabel'})  # Находим все GeoLabel
+        main_price = link_area.find('span', attrs={'data-mark': 'MainPrice'})
+        price_info = link_area.find('p', attrs={'data-mark': 'PriceInfo'})
+        
+        # Поиск первого тега <div data-name="GeneralInfoSectionRowComponent">
+        general_info_div = link_area.find('div', attrs={'data-name': 'GeneralInfoSectionRowComponent'})
+        
+        # Извлечение ссылки из первого GeneralInfoSectionRowComponent
+        offer_link = None
+        if general_info_div:
+            # Ищем ссылку внутри этого div
+            offer_link_tag = general_info_div.find('a', href=True)
+            if offer_link_tag:
+                offer_link = offer_link_tag['href']
+        
+        # Объединение всех адресов в одну строку
+        address = ', '.join([geo_label.get_text(strip=True) for geo_label in geo_labels])
+        
+        # Вывод информации, если теги найдены
+        if offer_title:
+            print(f"Название: {offer_title.get_text(strip=True)}")
+        if offer_subtitle:
+            print(f"Подзаголовок: {offer_subtitle.get_text(strip=True)}")
+        if geo_labels:
+            print(f"Адрес: {address}")
+        if main_price:
+            print(f"Цена: {main_price.get_text(strip=True)}")
+        if price_info:
+            print(f"Цена за метр: {price_info.get_text(strip=True)}")
+        if offer_link:
+            print(f"Ссылка на объявление: {offer_link}")
+        
+        print("-" * 40)  # Разделитель между карточками
+
+# Основной код для обработки нескольких страниц
+base_url = 'https://www.cian.ru/cat.php'
+params = {
+    'deal_type': 'sale',
+    'engine_version': '2',
+    'offer_type': 'flat',
+    'region': '1'
+}
+
+for page in range(1, 2):  
+    params['p'] = page  # Добавляем параметр страницы
+    url = f"{base_url}?{'&'.join([f'{k}={v}' for k, v in params.items()])}"  # Формируем URL
+    print(f"Обработка страницы {page}...")
+    process_page(url)

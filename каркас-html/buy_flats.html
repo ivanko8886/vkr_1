@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>ДомоТека - база недвижимости в России | Продажа, аренда квартир и другой недвижимости</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/ico" href="../pictures/favicon.png"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="../стили-css/up.css" type="text/css">
+    <link rel="stylesheet" href="../стили-css/main.css" type="text/css">
+    <link rel="stylesheet" href="../стили-css/center.css" type="text/css">
+    <link rel="stylesheet" href="../стили-css/geo-but.css" type="text/css">
+    <link rel="stylesheet" href="../стили-cs/login.css" type="text/css">
+    <link rel="stylesheet" href="../стили-css/login.css" type="text/css">
+    <script src="../функционал-js-py/login.js"></script>
+    <script src="../функционал-js-py/geo-but.js"></script>
+    <script src="../функционал-js-py/icon-animations.js"></script>
+    <script src="../функционал-js-py/banner.js"></script>
+    <script src="../функционал-js-py/login.js"></script>
+
+    <style>
+        /* Общие стили для контейнера */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            margin-top: 20px; /* Отступ от шапки сайта */
+        }
+
+        /* Стили для карточек объектов */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap; /* Позволяет карточкам переноситься на новую строку */
+            justify-content: center; /* Центрирует карточки */
+            gap: 20px; /* Отступ между карточками */
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid #ccc;
+            padding: 20px;
+            width: 300px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 8px;
+        }
+
+        .card h3 {
+            margin: 0 0 10px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .card p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .card a {
+            color: #007BFF;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Стили для нижней части карточки (кнопки и логотип) */
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .card-footer img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .card-footer button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .card-footer button.compare {
+            background-color: #008CBA;
+        }
+
+        .card-footer button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <meta name="viewport" content="width=1200"> <!--  1200 на желаемую ширину -->
+    <div id="login-modal" class=" modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Вход в систему</h2>
+            <form class="login-form">
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" placeholder="Пароль" required>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="login-button">Войти</button>
+                    <a href="#" class="forgot-password">Забыли пароль?</a>
+                </div>
+                <div class="register-link">
+                    <p>Нет аккаунта? <a href="#">Зарегистрироваться</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <header class="up">
+        <!-- Верхняя часть с логотипом и SVG-иконками -->
+        <div class="top-section">
+            <div class="left-section">
+                <div class="logo">
+                    <a href="main.html">
+                        <img style="margin-left : 7.5px;" src="../pictures/domoteka.png" alt="Логотип проекта">
+                    </a>
+                </div>
+            </div>
+            <div class="right-section">
+                <ul class="main-menu">
+                   
+                    
+                    <li>
+                        <a href="#" title="Сравнить">
+                            <svg class="icon icon-compare" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                                <line x1="2" y1="6" x2="16" y2="6"></line>
+                                <line x1="2" y1="12" x2="16" y2="12"></line>
+                                <line x1="2" y1="18" x2="16" y2="18"></line>
+                                <g class="plus-symbol">
+                                    <line x1="19" y1="10" x2="19" y2="14"></line>
+                                    <line x1="17" y1="12" x2="21" y2="12"></line>
+                                </g>
+                            </ ```html
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="Избранное">
+                            <svg class="icon-favorite" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path class="outline" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke="black" stroke-width="3"/>
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8 .5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke="#00ffff" stroke-width="2"/>
+                            </svg>
+                        </a>
+                    </li>
+                    <li><a href="#" id="login-link">Личный кабинет</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Нижняя часть с кнопками -->
+        <div class="bottom-section">
+            <div class="left-section">
+                <div class="dropdowns">
+                    <div class="dropdown">
+                        <button class="dropbtn">
+                            <span>Покупка</span>
+                        </button>
+                        <div class="dropdown-content">
+                            <div>
+                                <a href="buy_flats.html">Квартиры</a>
+                                <a href="buy_houses.html">Дома</a>
+                                <a href="buy_land_plots.html">Участки</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">
+                            <span>Аренда</span>
+                        </button>
+                        <div class="dropdown-content">
+                            <div>
+                                <a href="long_rent.html">Длительная аренда</a>
+                                <a href="rent_flats.html">Квартиры</a>
+                                <a href="rent_rooms.html">Комнаты</a>
+                                <a href="rent_houses_and_cotteges.html">Дома и коттеджи</a>
+                                <a href="daily_rent.html">Посуточная аренда</a>
+                                <a href="pass.html">Сдать</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">
+                            <span>Коммерческая</span>
+                        </button>
+                        <div class="dropdown-content">
+                            <div>
+                                <a href="commercial_rent.html">Аренда</a>
+                                <a href="commercial_buy.html">Продажа</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">
+                            <span>Новостройки</span>
+                        </button>
+                        <div class="dropdown-content">
+                            <div>
+                                <a href="new_flats.html">Квартиры</a>
+                                <a href="new_houses.html">Дома</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Личный кабинет -->
+    <div class="container">
+        <div class="card-container">
+            <!-- Первый объект -->
+            <div class="card">
+                <img src="C:\Users\Ivan Tula\Desktop\vkr_1\pictures\2287451575-1.jpg" alt="Фото недвижимости">
+                <div style="text-align: left; width: 100%;">
+                    <h3>Пентхаус на Патриарших прудах</h3>
+ <p>4-комн. квартира, 620,1 м², 6/6 этаж • Секция Подъезд 1</p>
+                    <p>Адрес: Москва, ЦАО, р-н Пресненский, м. Пушкинская, Трехпрудный переулок, 9С2</p>
+                    <p>Цена: 2 480 400 000 ₽</p>
+                    <p>Цена за метр: 4 000 000 ₽/м²</p>
+                    <a href="https://www.cian.ru/sale/flat/308157873/" target="_blank">Ссылка на объявление</a>
+                </div>
+                <div class="card-footer">
+                    <img src="C:\Users\Ivan Tula\Desktop\vkr_1\к33кц3.png" alt="Циан">
+                    <button>В избранное</button>
+                    <button class="compare">Сравнить</button>
+                </div>
+            </div>
+        
+            <!-- Второй объект -->
+            <div class="card">
+                <img src="C:\Users\Ivan Tula\Desktop\vkr_1\pictures\2350143085-1.jpg" alt="Фото недвижимости">
+                <div style="text-align: left; width: 100%;">
+                    <h3>Изящный мезонет в районе Арбата</h3>
+                    <p>4-комн. квартира, 125,2 м², 1/6 этаж</p>
+                    <p>Адрес: Москва, ЦАО, р-н Пресненский, м. Арбатская, Скатертный переулок, 22</p>
+                    <p>Цена: 106 763 684 ₽</p>
+                    <p>Цена за метр: 852 745 ₽/м²</p>
+                    <a href="https://www.cian.ru/sale/flat/311246514/" target="_blank">Ссылка на объявление</a>
+                </div>
+                <div class="card-footer">
+                    <img src="C:\Users\Ivan Tula\Desktop\vkr_1\к33кц3.png" alt="Циан">
+                    <button>В избранное</button>
+                    <button class="compare">Сравнить</button>
+                </div>
+            </div>
+        
+            <!-- Третий объект -->
+            <div class="card">
+                <img src="C:\Users\Ivan Tula\Desktop\vkr_1\pictures\kvartira-moskva-bratislavskaya-ulica-1999368835-1.jpg" alt="Фото недвижимости">
+                <div style="text-align: left; width: 100%;">
+                    <h3>2-комн. квартира, 54 м², 13/16 этаж</h3>
+                    <p>Адрес: Москва, ЮВАО, р-н Марьи но, м. Братиславская, Братиславская улица, 33</p>
+                    <p>Цена: 13 500 000 ₽</p>
+                    <p>Цена за метр: 250 000 ₽/м²</p>
+                    <a href="https://www.cian.ru/sale/flat/293910171/" target="_blank">Ссылка на объявление</a>
+                </div>
+                <div class="card-footer">
+                    <img src="C:\Users\Ivan Tula\Desktop\vkr_1\к33кц3.png" alt="Циан">
+                    <button>В избранное</button>
+                    <button class="compare">Сравнить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

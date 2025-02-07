@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>ДомоТека - база недвижимости в России | Продажа, аренда квартир и другой недвижимости</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link  rel="icon" type="image/ico" href="../pictures/favicon.png"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="../стили-css/up.css" type="text/css">
+    <link rel="stylesheet" href="../стили-css/main.css" type="text/css">
+    <link rel="stylesheet" href="../стили-css/center.css" type="text/css">
+    <link rel="stylesheet" href="../стили-css/geo-but.css" type="text/css">
+    <link rel="stylesheet" href="../стили-cs/login.css" type="text/css">
+    <link rel="stylesheet" href="../стили-css/login.css" type="text/css">
+    <script src="../функционал-js-py/login.js"></script>
+    <script src="../функционал-js-py/geo-but.js"></script>
+    <script src="../функционал-js-py/icon-animations.js"></script>
+    <script src="../функционал-js-py/banner.js"></script>
+    <script src="../функционал-js-py/login.js"></script>
+
+</head>
+
+<body>
+    <meta name="viewport" content="width=1200"> <!--  1200 на желаемую ширину -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Вход в систему</h2>
+            <form class="login-form">
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" placeholder="Пароль" required>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="login-button">Войти</button>
+                    <a href="#" class="forgot-password">Забыли пароль?</a>
+                </div>
+                <div class="register-link">
+                    <p>Нет аккаунта? <a href="#">Зарегистрироваться</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <header class="up">
+        <!-- Верхняя часть с логотипом и SVG-иконками -->
+        <div class="top-section">
+            <div class="left-section">
+                <div class="logo" >
+                    <a href="main.html">
+                        <img  style="margin-left: 7.5px;" src="../pictures/domoteka.png" alt="Логотип проекта">
+                        </a>                </div>
+            </div>
+            <div class="right-section">
+                <ul class="main-menu">
+                    <li>
+                        <a href="#" title="Поиск по карте">
+                            <svg class="icon icon-geolocation-futuristic" width="24" height="24" viewBox="0 0 24 24">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                <circle cx="12" cy="9" r="3" fill="none" stroke="currentColor" stroke-width="0.5"/>
+                                <path d="M12 2v7M12 11v11M2 9h7M15 9h7" stroke="currentColor" stroke-width="0.5"/>
+                                <circle cx="12" cy="9" r="1" />
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="Поиск по сайту">
+                            <svg class="icon icon-search-futuristic" width="24" height="24" viewBox="0 0 24 24">
+                                <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
+                                <path d="M20 20l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <g class="rotate">
+                                    <circle cx="11" cy="11" r="3" fill="none" stroke="currentColor" stroke-width="1"/>
+                                    <path d="M11 4v2M11 16v2M4 11h2M16 11h2" stroke="currentColor" stroke-width="1"/>
+                                </g>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="Сравнить">
+                            <svg class="icon icon-compare" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                                <line x1="2" y1="6" x2="16" y2="6"></line>
+                                <line x1="2" y1="12" x2="16" y2="12"></line>
+                                <line x1="2" y1="18" x2="16" y2="18"></line>
+                                <g class="plus-symbol">
+                                    <line x1="19" y1="10" x2="19" y2="14"></line>
+                                    <line x1="17" y1="12" x2="21" y2="12"></line>
+                                </g>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="Избранное">
+                            <svg class="icon-favorite" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path class="outline" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke="black" stroke-width="3"/>
+                                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" stroke="#00ffff" stroke-width="2"/>
+                            </svg>
+                        </a>
+                        </li>
+                        <li><a href="#" id="login-link">Войти</a></li>                <!--заменить слова верхней части шапки на значки 
+                    + сделать сплывающее окно помощник при наведении
+                    за исключением входа\регистрции\личного кабинета кабинета -->
+                    </ul>
+            </div>
+        </div>
+        
+        
+        
+        <!-- Нижняя часть с кнопками -->
+        <div class="bottom-section">
+            <div class="left-section">
+                <div class="dropdowns">
+                    <div class="dropdown">
+                        <button class="dropbtn">
+                            <span>Аренда</span>
+                        </button>
+                        <div class="dropdown-content">
+                            <div>
+                                <a href="#">Длительная аренда</a>
+                                <a href="#">-Квартиры</a>
+                                <a href="#">-Комнаты</a>
+                                <a href="#">-Дома и коттеджи</a>
+                                <a href="#">Посуточная аренда</a>
+                                <a href="#">Сдать</a>
+                            </div>
+                            <div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">
+                            <span>Продажа</span>
+                        </button>
+                        <div class="dropdown-content">
+                            <div>
+                                <a href="#">-Квартиры</a>
+                                <a href="#">-Дома</a>
+                                <a href="#">-Земельные участки</a>
+
+                            </div>
+                            <div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">
+                            <span>Коммерческая</span>
+                        </button>
+                        <div class="dropdown-content">
+                            <div>
+                                <a href="#">Аренда</a>
+                                <a href="#">Продажа</a>
+                            </div>
+                            <div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">
+                            <span>Новостройки</span>
+                        </button>
+                        <div class="dropdown-content">
+                            <div>
+                                <a href="#">Квартиры</a>
+                                <a href="#">Дома</a>
+                            </div>
+                            <div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    
+    <section class="center" style="background-image: url('../pictures/banner1.jfif'); background-size: cover; background-position: center;">
+       
+    
+        
+
+        <!-- Кнопка геолокации -->
+        <button id="geolocate" class="geolocation-btn">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 0C3.6 0 0 3.6 0 8C0 12.4 3.6 16 8 16C12.4 16 16 12.4 16 8C16 3.6 12.4 0 8 0ZM8 14.4C4.4 14.4 1.6 11.6 1.6 8C1.6 4.4 4.4 1.6 8 1.6C11.6 1.6 14.4 4.4 14.4 8C14.4 11.6 11.6 14.4 8 14.4Z" fill="currentColor"/>
+                <path d="M8 6.4C7.1 6.4 6.4 7.1 6.4 8C6.4 8.9 7.1 9.6 8 9.6C8.9 9.6 9.6 8.9 9.6 8C9.6 7.1 8.9 6.4 8 6.4Z" fill="currentColor"/>
+            </svg>
+            <span class="text">Определяю местоположение</span>
+        </button>
+
+        <!-- Модальное окно выбора города -->
+        <div id="city-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <h2>Выберите город</h2>
+                <input type="text" id="city-search" placeholder="Поиск города...">
+                <div id="city-list">
+                    <!-- Города будут добавляться динамически -->
+                </div>
+                <button id="confirm-city">Подтвердить выбор</button>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="down">
+        <div class="container">
+            <div class="info-blocks">
+                <div class="info-block">
+                    <h3>О нас</h3>
+                    <p>Domoteka - ваш надежный партнер в поиске недвижимости. Мы агрегируем предложения со всех крупных площадок, чтобы вы могли найти идеальный вариант.</p>
+                </div>
+                <div class="info-block">
+                    <h3>Контакты</h3>
+                    <p>Email: info@domoteka.ru</p>
+                    <p>Телефон: +7 (999) 123-45-67</p>
+                    <p>Адрес: г. Москва, ул. Примерная, д. 1</p>
+                </div>
+            </div>
+            <div class="footer">
+                <p>&copy; 2024 Domoteka. Все права защищены.</p>
+            </div>
+        </div>
+    </section>
+    
+</body>
+</html>
